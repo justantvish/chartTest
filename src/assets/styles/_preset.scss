@@ -1,0 +1,56 @@
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+button {
+
+    &,
+    &:active,
+    &:focus {
+        outline: 0;
+    }
+}
+
+body {
+    margin: 0;
+    font: $base-font-size $base-font-family;
+    background-color: $gray-lighter;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: capitalize;
+    color: $main;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+// .column {
+//     max-width: 100%;
+//     padding: 24px;
+// }
