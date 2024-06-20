@@ -1,0 +1,28 @@
+.tooltip {
+    width: auto;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,.1);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+.main {
+    padding: 8px 12px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
