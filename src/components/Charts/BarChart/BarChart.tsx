@@ -9,37 +9,53 @@ import { fetchResponse, useFetch } from "../../../hooks/useFetch";
 import Tooltip from "../../UI/Tooltip/Tooltip";
 
 import classes from './BarChart.module.scss';
+import { useEffect, useState } from "react";
 
 const BarChart = () => {
-    const {data}: fetchResponse = useFetch(API_URL);
-    console.log(data)
-
     const categories: string[] = [];
     const marketCapData: number[] = [];
     const marketCapChangeData: number[] = [];
-        
+
+    const {data}: fetchResponse = useFetch(API_URL);
+
+    const findMaxCap = () => {
+        let highestMarketCap: number = 0;
+        let lowestMarketCap: number = 0;
+        let highestMarketCapCurrency: string = '';
+
+        for (let i = 0; i < data.length; i++) {
+            const current: currencyItemObj = data[i];
+            highestMarketCap = Math.max(highestMarketCap, current.market_cap);
+            lowestMarketCap = current.market_cap;
+            lowestMarketCap = Math.min(lowestMarketCap, current.market_cap);
+            
+            if(current.market_cap === highestMarketCap) {
+                highestMarketCapCurrency = current.name
+            }
+        }
+        highestMarketCap = Number((highestMarketCap / 1000000000).toFixed(2));
+        lowestMarketCap = Number((lowestMarketCap / 1000000000).toFixed(2));
+        return {highestMarketCap, highestMarketCapCurrency, lowestMarketCap};
+    }
+    const {highestMarketCap, highestMarketCapCurrency, lowestMarketCap} = findMaxCap();
+
+    const [dataChart, setDataChart] = useState<string[]>(categories);
+    const [minMarketCap, setminMarketCap] = useState<number>(lowestMarketCap);
+    
     data && data.map((cur: currencyItemObj) => {
         categories.push(cur.name)
         marketCapData.push(Number((cur.market_cap / 1000000000).toFixed(2)))
         marketCapChangeData.push(Number((cur.market_cap_change_24h / 1000000000).toFixed(2)))
     });
-
-    const findMaxCap = () => {
-        let highestMarketCap: number = 0;
-        let highestMarketCapCurrency: string = '';
-
-        for (let i = 0; i < data.length; i++) {
-            const current: currencyItemObj = data[i];
-            highestMarketCap = Math.max(highestMarketCap, current.market_cap)
-            if(current.market_cap === highestMarketCap) {
-                highestMarketCapCurrency = current.name
-            }
-        }
-        highestMarketCap = Number((highestMarketCap / 1000000000).toFixed(2))
-        return {highestMarketCap, highestMarketCapCurrency};
-    }
-    const {highestMarketCap, highestMarketCapCurrency} = findMaxCap();
-   
+    useEffect(() => {
+        const filteredCategoires: string[] = [];
+        const filteredData: currencyItemObj[] = data.filter((cur: currencyItemObj) => cur.market_cap >= minMarketCap);
+        filteredData.map((cur: currencyItemObj) => {
+            filteredCategoires.push(cur.name)
+        });
+        setDataChart(filteredCategoires);
+        console.log(minMarketCap, filteredData)
+    }, [data, minMarketCap])
 
 
     console.log(findMaxCap())
@@ -90,7 +106,7 @@ const BarChart = () => {
             colors: ['transparent']
         },
         xaxis: {
-            categories: [...categories],
+            categories: [...dataChart],
         },
         yaxis: {
             title: {
@@ -143,6 +159,13 @@ const BarChart = () => {
                 series={series}
                 type="bar"
                 height={350}
+            />
+            <input
+                type="range"
+                min={lowestMarketCap}
+                max={highestMarketCap}
+                value={minMarketCap}
+                onChange={(e) => setminMarketCap(Number(e.target.value))}
             />
         </div>
     )
