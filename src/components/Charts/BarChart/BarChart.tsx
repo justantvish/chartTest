@@ -31,17 +31,18 @@ const BarChart = () => {
                     seriesIndex: 0,
                     marker: {
                         size: 6,
-                        fillColor: "#fabfbf",
-                        strokeColor: "#363232",
+                        fillColor: "#00cccc",
+                        strokeColor: "#006666",
                         radius: 2
                     },
                     label: {
-                        borderColor: "#fabfbf",
+                        borderColor: "#00cccc",
                         offsetY: 0,
                         style: {
-                            color: "#fff",
-                            background: "#fabfbf",
-                            fontSize: '12'
+                            color: "#006666",
+                            background: "#00cccc",
+                            fontSize: '12',
+                            fontWeight: 'bold'
                         },
                         text: 'Highest Market Cap'
                     }
@@ -114,17 +115,11 @@ const BarChart = () => {
             data: [...filteredMarketCapChangeData],
         },
     ];
-
+    
+    const sortedMarketCapData = mergeSort(filteredMarketCapData)
     const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        // if (filteredMarketCapData.)
-        setminMarketCap(Number(e.target.value));
+        setminMarketCap(prev => +prev + +sortedMarketCapData[0]);
     };
-    const calcRangeSet = () => {
-        const sortedMarketCapData = mergeSort(filteredMarketCapData)
-
-        console.log(sortedMarketCapData)
-        return '' + (sortedMarketCapData[0] - 1)
-    }
 
     return (
         <div id="barChart" className={classes.chart}>
@@ -133,8 +128,8 @@ const BarChart = () => {
                 label="Market Cap Range (in billion USD)"
                 minValue={lowestMarketCap}
                 maxValue={highestMarketCap}
-                value={minMarketCap}
-                step={calcRangeSet()}
+                value={lowestMarketCap}
+                step={sortedMarketCapData[0]}
                 onChange={(e) => handleRangeChange(e)}
             />
             <ReactApexChart 

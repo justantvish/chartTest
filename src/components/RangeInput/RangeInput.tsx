@@ -22,7 +22,7 @@ const RangeInput = ({minValue, maxValue, value, onChange, name, step, label}: Pr
                 max={maxValue}
                 value={value}
                 step={step}
-                onChange={onChange}
+                onInput={onChange}
             />
         </div>
     )

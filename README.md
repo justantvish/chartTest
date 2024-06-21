@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Chart Test Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to install project:
 
-Currently, two official plugins are available:
+1. Clone project to your computer:
+- Navigate to the main page of the repository.
+- Copy the URL for the repostory.
+- Open wanted working directory.
+- open Git Bash.
+- Type `git clone ` and past URL copied earlier.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. In terminal type `pnpm i` to install required modules
 
-## Expanding the ESLint configuration
+3. To run project type in terminal `pnpm run dev`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
+4. To open project in browser you can:
+- Type in browser url field `http://localhost:5173/`
+- Click on the link in the terminal
+- or use this link [http://localhost:5173/]
 
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+```

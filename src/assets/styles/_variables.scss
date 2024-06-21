@@ -1,48 +1,17 @@
 // fonts
-$base-font-family: 'Inter', sans-serif;
+$base-font-family: 'Lato', sans-serif;
 $base-font-size: 14px;
 
 // colors
-$black: #101622;
-$pale-blue: #ecf6ff;
+$black: #003333;
 $white: #fff;
-$blue: #2e4b68;
-$blue-light: #a9dbe7;
-$green: #029632;
-$green-light: #92f1cd;
 $gray: #c2c2c2;
-$gray-light: #e1e9eb;
-$gray-lighter: #f4f7f6;
-$gray-dark: #6a6e77;
-$gray-blue: #738296;
+$green: #006666;
+$green-light: #00cccc;
 
 // color presets
 $main: $green;
-$main-bg: $pale-blue;
+$alt: $green-light;
+$main-bg: $gray;
 $text-color: $black;
 $link-color: $main;
-
-// position colors
-$gk-color: #9d4e4e;
-$gk-bg: #fe9d9d;
-$df-color:#b96f00;
-$df-bg: #f0b593;
-$fw-color: #1b4883;
-$fw-bg: #789dec;
-$m-color: #138035;
-$m-bg: #80df95;
-
-// buttons
-$btn-main-bg: $main;
-$btn-main-bg-hover: lighten($main, 10%);
-$btn-main-color: $white;
-
-$dark-green: #252b25;
-$light-green: #c5d3d0;
-$green-group-text: #5c7567;
-
-// navigation
-$navlink-color: $gray;
-$navlink-color-hover: $main;
-$navlink-bg-hover: $light-green;
-$navlink-group-color: $green-group-text;
