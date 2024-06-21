@@ -4,6 +4,7 @@ export type fetchResponse = {
     data: [];
     error?: string | null;
     loading?: boolean;
+    filter?: () => void;
 };
 
 export const useFetch = (url: string): fetchResponse => {
