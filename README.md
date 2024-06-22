@@ -1,6 +1,6 @@
 # Chart Test Assignment
 
-You can also look at with project implement with TypeScript: [https://github.com/justantvish/chartTestJS]
+You can also look at with project implement with TypeScript: <https://github.com/justantvish/chartTestJS>
 
 ## How to install project:
 
@@ -20,7 +20,7 @@ You can also look at with project implement with TypeScript: [https://github.com
 
 - Type in browser url field `http://localhost:5173/`
 - Click on the link in the terminal
-- or use this link [http://localhost:5173/]
+- or use this link <http://localhost:5173/>
 
 ## Project Details
 
