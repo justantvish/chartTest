@@ -1,5 +1,7 @@
 # Chart Test Assignment
 
+You can also look at with project implement with TypeScript: [https://github.com/justantvish/chartTestJS]
+
 ## How to install project:
 
 1. Clone project to your computer:
@@ -20,6 +22,22 @@
 - Click on the link in the terminal
 - or use this link [http://localhost:5173/]
 
-## Project details
+## Project Details
 
-This project built with React, TypeScript and SCSS.
+- Project built with React, Typescript and SCSS.
+- API: Coingecko API. Fetched with fetch API
+- Chart: Apex Charts
+
+## Project Structure
+
+- In src folder:
+    - components folder:
+        - Charts folder with barChart component
+        - RangeInput with filter input component
+        - UI folder with Card and Tooltip components
+    - layouts folder with layout components: Wrapper, Main, Header
+    - utils folder with helper functions
+    - hooks folder with custom hooks: useFetch.ts
+    - constants.ts file with constants, such as API_URL
+    - interfaces.ts file with interfaces, such as currencyItemObj
+    - assets folder with styles

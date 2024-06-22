@@ -12,7 +12,7 @@ function App() {
     return (
         <>
             <Wrapper>
-                <Header title="Test" />
+                <Header title="App Chart" />
                 <Main>
                     <Card>
                         <BarChart/>
