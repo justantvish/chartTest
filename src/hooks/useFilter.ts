@@ -25,10 +25,10 @@ export const useFilter = ({minMarketCap, data}: Props) => {
             filteredMarketCapArray.push(convertCapToBillions(cur.market_cap))
             filteredMarketCap24Array.push(convertCapToBillions(cur.market_cap_change_24h))
         });
+
         setFilteredCategories(filteredNames)
         setFilteredMarketCapData(filteredMarketCapArray)
         setFilteredMarketCapChangeData(filteredMarketCap24Array)
-
     }, [data, minMarketCap]);
 
     return {filteredCategories, filteredMarketCapData, filteredMarketCapChangeData};

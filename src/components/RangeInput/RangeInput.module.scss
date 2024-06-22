@@ -40,7 +40,6 @@
     &:focus::-webkit-slider-thumb {
         box-shadow: 0 0 0 13px rgba($main, .2)
     }
-    
     &::-moz-range-thumb:hover {
         box-shadow: 0 0 0 10px rgba($main, .1)
     }
@@ -57,10 +56,19 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media(max-width: 767px) {
+        flex-wrap: wrap;
+    }
 }
 
 .label {
     min-width: 200px;
     font-size: 14px;
     font-weight: bold;
+
+    @media(max-width: 767px) {
+        margin-bottom: 8px;
+        width: 100%;
+    }
 }

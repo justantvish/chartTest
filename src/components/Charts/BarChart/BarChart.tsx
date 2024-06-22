@@ -12,15 +12,14 @@ import Tooltip from "../../UI/Tooltip/Tooltip";
 import RangeInput from "../../RangeInput/RangeInput";
 
 import classes from './BarChart.module.scss';
-import { mergeSort } from "../../../utils/mergeSort";
 
 const BarChart = () => {
     const { data } = useFetch(API_URL);
     const {highestMarketCap, highestMarketCapCurrency, lowestMarketCap} = findMaxCap(data);
 
-    const [minMarketCap, setminMarketCap] = useState<number>(lowestMarketCap);
-
-    const {filteredCategories, filteredMarketCapData, filteredMarketCapChangeData} = useFilter({minMarketCap, data});
+    const [rangeVal, setRangeVal] = useState<number>(lowestMarketCap);
+    
+    const {filteredCategories, filteredMarketCapData, filteredMarketCapChangeData} = useFilter({minMarketCap: rangeVal, data});
 
     const chartOptions: ApexOptions = {
         annotations: {
@@ -44,7 +43,7 @@ const BarChart = () => {
                             fontSize: '12',
                             fontWeight: 'bold'
                         },
-                        text: 'Highest Market Cap'
+                        text: `Highest Market Cap: ${highestMarketCap}`
                     }
                 }
             ]
@@ -105,7 +104,6 @@ const BarChart = () => {
         },
     };
 
-
     const series = [
         {
             name: 'Market Cap',
@@ -115,11 +113,7 @@ const BarChart = () => {
             data: [...filteredMarketCapChangeData],
         },
     ];
-    
-    const sortedMarketCapData = mergeSort(filteredMarketCapData)
-    const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setminMarketCap(prev => +prev + +sortedMarketCapData[0]);
-    };
+
 
     return (
         <div id="barChart" className={classes.chart}>
@@ -128,9 +122,9 @@ const BarChart = () => {
                 label="Market Cap Range (in billion USD)"
                 minValue={lowestMarketCap}
                 maxValue={highestMarketCap}
-                value={lowestMarketCap}
-                step={sortedMarketCapData[0]}
-                onChange={(e) => handleRangeChange(e)}
+                value={rangeVal}
+                onChange={(e) => setRangeVal(+e.target.value)}
+                step={20}
             />
             <ReactApexChart 
                 options={chartOptions}

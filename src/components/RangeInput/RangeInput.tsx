@@ -1,7 +1,7 @@
 import classes from './RangeInput.module.scss';
 type Props = {
     minValue: number;
-    maxValue: number;
+    maxValue: number | string;
     value: number;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     name: string;
