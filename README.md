@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# Chart Test Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+You can also look at with project implement with TypeScript: [https://github.com/justantvish/chartTestJS]
 
-Currently, two official plugins are available:
+## How to install project:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone project to your computer:
 
-## Expanding the ESLint configuration
+- Navigate to the main page of the repository.
+- Copy the URL for the repostory.
+- Open wanted working directory.
+- open Git Bash.
+- Type `git clone ` and past URL copied earlier.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. In terminal type `pnpm i` to install required modules
 
-- Configure the top-level `parserOptions` property like this:
+3. To run project type in terminal `pnpm run dev`
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+4. To open project in browser you can:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Type in browser url field `http://localhost:5173/`
+- Click on the link in the terminal
+- or use this link [http://localhost:5173/]
+
+## Project Details
+
+- Project built with React, Typescript and SCSS.
+- API: Coingecko API. Fetched with fetch API
+- Chart: Apex Charts
+
+## Project Structure
+
+- In src folder:
+    - components folder:
+        - Charts folder with barChart component
+        - RangeInput with filter input component
+        - UI folder with Card and Tooltip components
+    - layouts folder with layout components: Wrapper, Main, Header
+    - utils folder with helper functions
+    - hooks folder with custom hooks: useFetch.ts
+    - constants.ts file with constants, such as API_URL
+    - interfaces.ts file with interfaces, such as currencyItemObj
+    - assets folder with styles

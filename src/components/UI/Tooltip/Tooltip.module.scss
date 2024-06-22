@@ -1,3 +1,5 @@
+@import '../../../assets/styles/variables';
+
 .tooltip {
     width: auto;
     background-color: #fff;
@@ -10,7 +12,7 @@
     display: flex;
     align-items: center;
     padding: 4px 12px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $green-light;
 }
 
 .main {

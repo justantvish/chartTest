@@ -9,12 +9,12 @@ type Props = {
 
 const Header: React.FC<Props> = ({ children, title }) => {
 
-  return (
-    <header className={classes.header}>
-      <h1>{title}</h1>
-      <div className="tools">{children}</div>
-    </header>
-  );
+    return (
+        <header className={classes.header}>
+            <h1>{title}</h1>
+            <div className="tools">{children}</div>
+        </header>
+    );
 };
 
 export default Header;

@@ -7,9 +7,9 @@ type Props = {
 };
 
 const Main: React.FC<Props> = ({ children }) => {
-  return (
-    <main className={classes.main}>{children}</main>
-  );
+    return (
+        <main className={classes.main}>{children}</main>
+    );
 };
 
 export default Main;
